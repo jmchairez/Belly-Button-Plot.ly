@@ -14,4 +14,13 @@ d3.json("../data/samples.json").then((data) => {
             row.text(item);
         });
 
+        const dropdownchange = () => {
+
+        var demoTable = d3.select("#demographics-table");
+        demoTable.html("")
+        var inputElement = d3.select("#selDataset");
+        var tableBody = demoTable.append("tbody");
+        var inputValue = inputElement.property("value");    
+        }
+
     });
