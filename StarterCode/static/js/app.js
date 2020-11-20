@@ -62,5 +62,18 @@ d3.json("../data/samples.json").then((data => {
 Plotly.newPlot("bar", bardata, barlayout);
 
 
+var level = washFreq;
+var degrees = 180 - (level * 20),
+    radius = .5;
+var radians = degrees * Math.PI / 180;
+var x = radius * Math.cos(radians);
+var y = radius * Math.sin(radians);
 
-})
+var path1 = (degrees < 45 || degrees > 135) ? 'M -0.0 -0.025 L 0.0 0.025 L ' : 'M -0.025 -0.0 L 0.025 0.0 L ';
+var mainPath = path1,
+    pathX = String(x),
+    space = ' ',
+    pathY = String(y),
+    pathEnd = ' Z';
+
+});
