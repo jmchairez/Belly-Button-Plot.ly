@@ -112,3 +112,25 @@ var gaugelayout = {
               showgrid: false, range: [-1, 1]}
 };
 Plotly.newPlot('gauge', gaugedata, gaugelayout);
+
+var size = filteredSamples[0].sample_values;
+var trace2 = {
+x: filteredSamples[0].otu_ids,
+y: filteredSamples[0].sample_values,
+text: filteredSamples[0].otu_labels,
+mode: 'markers',
+marker: {
+  size: size,
+  sizeref: .1,
+  sizemode: 'area',
+  color: filteredSamples[0].otu_ids,
+  colorscale:"Portland"
+}}
+var bubbledata = [trace2]
+var bubblelayout = {
+title: "Microbe Prevalence by OTU",
+xaxis: {title: 'OTU ID'},
+yaxis: {title: '# Microbes Observed'},
+}
+Plotly.newPlot("bubble", bubbledata, bubblelayout)
+};
